@@ -81,11 +81,11 @@ describe("getDaysInMonth", () => {
 });
 
 describe("getDaysInYear", () => {
-    it("1999 365 days", () => {
+    it("1999 has 365 days", () => {
         expect(getDaysInYear(1999)).toEqual(365);
     });
 
-    it("2000 366 days", () => {
+    it("2000 has 366 days", () => {
         expect(getDaysInYear(2000)).toEqual(366);
     });
 });

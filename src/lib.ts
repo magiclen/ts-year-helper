@@ -73,16 +73,23 @@ export const getDaysInYear: {
 };
 
 /**
- * Validate a year in `number`. A valid year should be an integer between `0` to `9999`.
+ * Validate a year in `number`. A valid year should be an integer between `-9999` and `9999`.
  */
 export const isValidYear = (year: number): boolean => {
-    return Number.isInteger(year) && year >= 0 && year <= 9999;
+    return Number.isInteger(year) && year >= -9999 && year <= 9999;
+};
+
+/**
+ * Validate a BC year in `number`. A valid BC year should be an integer between `1` and `9999`.
+ */
+export const isValidBCYear = (year: number): boolean => {
+    return Number.isInteger(year) && year >= 1 && year <= 9999;
 };
 
 export type MonthNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 /**
- * Validate a month in `number`. A valid month should be an integer between `1` to `12`.
+ * Validate a month in `number`. A valid month should be an integer between `1` and `12`.
  */
 export const isValidMonth = (month: number): month is MonthNumber => {
     return Number.isInteger(month) && month >= 1 && month <= 12;
