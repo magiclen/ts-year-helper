@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=UTF-8>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/magiclen/ts-year-helper/dist/year-helper.min.js"></script> -->
+    <script src="./dist/year-helper.min.js"></script>
+    <title>year-helper</title>
+</head>
+
+<body>
+    <div>
+        <select id="year"></select>
+        <select id="month"></select>
+        <select id="date"></select>
+    </div>
+
+    <script>
+        const year = document.getElementById("year");
+        const month = document.getElementById("month");
+        const date = document.getElementById("date");
+
+        const now = new Date();
+        const currentYear = now.getFullYear();
+
+        for (let i = -10;i <= 10; i++) {
+            const y = currentYear + i;
+            const t = y.toString();
+
+            const option = document.createElement("option");
+            option.setAttribute("value", t);
+            option.innerHTML = t;
+
+            year.appendChild(option);
+        }
+
+        year.value = currentYear.toString();
+
+        for (let i = 1;i <= 12; i++) {
+            const t = i.toString();
+
+            const option = document.createElement("option");
+            option.setAttribute("value", t);
+            option.innerHTML = t;
+
+            month.appendChild(option);
+        }
+
+        month.value = `${now.getMonth() + 1}`;
+
+        for (let i = 1;i <= 31; i++) {
+            const t = i.toString();
+
+            const option = document.createElement("option");
+            option.setAttribute("value", t);
+            option.innerHTML = t;
+
+            date.appendChild(option);
+        }
+
+        date.value = `${now.getDate()}`;
+
+        const yearOrMonthChanged = () => {
+            const days = YearHelper.getDaysInMonth(parseInt(year.value), parseInt(month.value));
+
+            console.log(`${year.value}-${month.value} has ${days} days`);
+
+            for (let i = 28;i < days; i++) {
+                date.children[i].disabled = false;
+            }
+
+            for (let i = days;i < 31; i++) {
+                date.children[i].disabled = true;
+            }
+
+            if (date.selectedIndex >= days) {
+                date.selectedIndex = 0;
+            }
+        };
+
+        year.addEventListener("change", yearOrMonthChanged);
+        month.addEventListener("change", yearOrMonthChanged);
+
+        yearOrMonthChanged();
+    </script>
+</body>
+
+</html>
