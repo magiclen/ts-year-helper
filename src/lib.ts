@@ -28,23 +28,31 @@ export const getDaysInMonth: {
      */
     (leapYear: boolean, month: number): number;
 } = (yearOrIsLeapYear: number | boolean, month: number): number => {
-    if (month === 2) {
-        let leapYear: boolean;
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return 31;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return 30;
+        default: // case 2
+        {
+            let leapYear: boolean;
 
-        if (typeof yearOrIsLeapYear === "number") {
-            leapYear = isLeapYear(yearOrIsLeapYear);
-        } else {
-            leapYear = yearOrIsLeapYear;
-        }
+            if (typeof yearOrIsLeapYear === "number") {
+                leapYear = isLeapYear(yearOrIsLeapYear);
+            } else {
+                leapYear = yearOrIsLeapYear;
+            }
 
-        return leapYear ? 29 : 28;
-    } else {
-        const isOddMonth = month & 1;
-
-        if (month >= 8) {
-            return isOddMonth ? 30 : 31;
-        } else {
-            return isOddMonth ? 31 : 30;
+            return leapYear ? 29 : 28;
         }
     }
 };

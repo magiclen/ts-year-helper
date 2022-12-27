@@ -1,6 +1,6 @@
 {
   "name": "year-helper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This package provides some useful functions to deal with dates especially related to leap years.",
   "main": "lib/lib.js",
   "types": "lib/lib.d.ts",
