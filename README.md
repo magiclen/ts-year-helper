@@ -17,14 +17,9 @@ console.log(getDaysInYear(2000));     // 366
 
 ## Usage for Browsers
 
-```html
-<script src="https://cdn.jsdelivr.net/gh/magiclen/ts-year-helper/dist/year-helper.min.js"></script>
-<script>
-    console.log(YearHelper.isLeapYear(2000));        // true
-    console.log(YearHelper.getDaysInMonth(2000, 2)); // 29
-    console.log(YearHelper.getDaysInYear(2000));     // 366
-</script>
-```
+[Source](demo.html)
+
+[Demo Page](https://rawcdn.githack.com/magiclen/ts-year-helper/master/demo.html)
 
 ## License
 
