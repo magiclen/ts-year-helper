@@ -1,16 +1,20 @@
 {
   "name": "year-helper",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "This package provides some useful functions to deal with dates especially related to leap years.",
-  "main": "lib/lib.js",
-  "types": "lib/lib.d.ts",
+  "type": "module",
+  "exports": "./lib/lib.js",
+  "types": "./lib/lib.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
   "files": [
     "lib"
   ],
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:inspect-brk": "node --inspect-brk=0.0.0.0:9230 node_modules/jest/bin/jest.js --testTimeout 0 --runInBand",
+    "test": "node --experimental-specifier-resolution=node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "node --experimental-specifier-resolution=node --experimental-vm-modules  node_modules/jest/bin/jest.js --coverage",
+    "test:inspect-brk": "node --experimental-specifier-resolution=node --experimental-vm-modules --inspect-brk=0.0.0.0:9230 node_modules/jest/bin/jest.js --testTimeout 0 --runInBand",
     "clean": "rimraf lib",
     "build": "npm run clean && tsc -p tsconfig.build.json",
     "build:watch": "npm run build -- -w",
@@ -21,9 +25,6 @@
     "prepare": "git config core.hooksPath .githooks || exit 0",
     "prepack": "npm run build",
     "prepublishOnly": "npm run lint && npm run test"
-  },
-  "engines": {
-    "node": ">=16"
   },
   "repository": {
     "type": "git",
