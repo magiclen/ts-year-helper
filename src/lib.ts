@@ -9,7 +9,6 @@
  * @param year **unchecked, a year must be an integer**
  */
 export const isLeapYear = (year: number): boolean => {
-    // eslint-disable-next-line no-extra-parens
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 };
 
@@ -26,6 +25,7 @@ export const getDaysInMonth: {
      *
      * @param month **unchecked, a month must be an integer between `1` and `12`**
      */
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
     (leapYear: boolean, month: number): number;
 } = (yearOrIsLeapYear: number | boolean, month: number): number => {
     switch (month) {
@@ -67,6 +67,7 @@ export const getDaysInYear: {
     /**
      * Calculate how many days in a year.
      */
+    // eslint-disable-next-line @typescript-eslint/unified-signatures
     (leapYear: boolean): number;
 } = (yearOrIsLeapYear: number | boolean): number => {
     let leapYear: boolean;
