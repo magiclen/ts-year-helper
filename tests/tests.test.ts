@@ -1,4 +1,4 @@
-import { isLeapYear, getDaysInMonth, getDaysInYear } from "../src/lib.js";
+import { getDaysInMonth, getDaysInYear, isLeapYear } from "../src/lib.js";
 
 describe("isLeapYear", () => {
     it("1999 isn't a leap year", () => {
