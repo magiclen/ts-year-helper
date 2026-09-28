@@ -1,6 +1,6 @@
 {
     "name": "year-helper",
-    "version": "0.3.0",
+    "version": "0.4.0",
     "description": "This package provides some useful functions to deal with dates especially related to leap years.",
     "keywords": [
         "date",
