@@ -5,8 +5,6 @@ year-helper
 
 This package provides some useful functions to deal with dates especially related to leap years.
 
-Node.js 24 or later is required.
-
 ## Usage
 
 ```typescript
