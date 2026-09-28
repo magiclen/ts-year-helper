@@ -10,9 +10,9 @@ This package provides some useful functions to deal with dates especially relate
 ```typescript
 import { isLeapYear, getDaysInMonth, getDaysInYear } from "year-helper";
 
-console.log(isLeapYear(2000));        // true
+console.log(isLeapYear(2000)); // true
 console.log(getDaysInMonth(2000, 2)); // 29
-console.log(getDaysInYear(2000));     // 366
+console.log(getDaysInYear(2000)); // 366
 ```
 
 ## Usage for Browsers
